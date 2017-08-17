@@ -5,6 +5,7 @@ import Navbar from 'react-bootstrap/lib/Navbar'
 import Nav from 'react-bootstrap/lib/Nav'
 import NavItem from 'react-bootstrap/lib/NavItem'
 import Alert from 'react-bootstrap/lib/Alert'
+import { getPlayersById } from '../../reducers'
 import * as TeamsSelectors from '../../modules/Teams/selectors'
 import * as actions from '../../modules/Teams/actions'
 import Team from '../../modules/Teams/Team'
@@ -22,14 +23,20 @@ import Team from '../../modules/Teams/Team'
 //  {JSON.stringify(playersObj)}
 // </textarea>
 
-const App = ({ teams, actions, visibleTeam, visibleTeamIndex }) => {
+const App = ({
+  teams,
+  actions,
+  visibleTeam,
+  visibleTeamIndex,
+  playersById,
+}) => {
   return (
     <div>
       <Navbar>
         <Nav activeKey={visibleTeamIndex}>
           {teams.map((team, i) =>
             <NavItem
-              key={i}
+              key={team.name}
               eventKey={i}
               title={team.name}
               onClick={() => {
@@ -48,7 +55,12 @@ const App = ({ teams, actions, visibleTeam, visibleTeamIndex }) => {
       </Navbar>
       {!visibleTeam &&
         <Alert bsStyle="info">Create a team to get started</Alert>}
-      {visibleTeam && <Team team={visibleTeam} teamIndex={visibleTeamIndex} />}
+      {visibleTeam &&
+        <Team
+          team={visibleTeam}
+          teamIndex={visibleTeamIndex}
+          playersById={playersById}
+        />}
     </div>
   )
 }
@@ -58,6 +70,7 @@ const mapStateToProps = (state, ownProps) => {
     teams: TeamsSelectors.getTeams(state),
     visibleTeamIndex: TeamsSelectors.getVisibleTeamIndex(state),
     visibleTeam: TeamsSelectors.getVisibleTeam(state),
+    playersById: getPlayersById(state),
   }
 }
 

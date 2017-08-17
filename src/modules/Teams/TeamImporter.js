@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Button from 'react-bootstrap/lib/Button'
+
 import { importTeamOrder } from './actions'
 
 class TeamImporter extends React.Component {
@@ -21,9 +21,13 @@ class TeamImporter extends React.Component {
             value={this.state.importContent}
             onChange={e => this.setState({ importContent: e.target.value })}
           />
-          <Button bsStyle="primary" onClick={this.saveImport}>
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={this.saveImport}
+          >
             Import from footballguys
-          </Button>
+          </button>
         </div>
       )
     } else {
