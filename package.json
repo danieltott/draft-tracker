@@ -2,7 +2,7 @@
   "name": "draft-tracker",
   "version": "0.0.0",
   "private": true,
-   "homepage": "https://danieltott.github.io/draft-tracker",
+  "homepage": "https://danieltott.github.io/draft-tracker",
   "dependencies": {
     "gh-pages": "^1.0.0",
     "lint-staged": "^4.0.3",
@@ -17,7 +17,6 @@
     "redux-data-structures": "^0.1.5",
     "redux-devtools-extension": "^2.13.2",
     "redux-persist": "^4.8.3",
-    "redux-saga": "^0.15.6",
     "reselect": "^3.0.1",
     "styled-components": "^2.1.2"
   },

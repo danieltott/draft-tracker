@@ -6,17 +6,12 @@ import { persistStore } from 'redux-persist'
 import theme from './styles/theme'
 
 import configureStore from './store'
-import rootSaga from './sagas/index'
 
 import App from './components/App'
 
 const store = configureStore()
 
 persistStore(store)
-
-// store.runSaga(rootSaga, store.getState)
-
-store.runSaga(rootSaga, store.getState)
 
 render(
   <ThemeProvider theme={theme}>

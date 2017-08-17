@@ -68,6 +68,9 @@ const team = (state = initializeTeam(), action) => {
           allIds,
         }
       }
+      else {
+        return state
+      }
 
     default:
       if (action.payload && typeof action.payload.playerId !== 'undefined') {
