@@ -7,7 +7,8 @@ import * as teamActions from '../../modules/Teams/actions'
 class Player extends React.Component {
   render() {
     const { playerInfo, playerState, i, showClaimed } = this.props
-    if (!showClaimed && playerState.claimed) {
+    if (!playerState || (!showClaimed && playerState.claimed)) {
+      console.log(this.props.playerId)
       return null
     }
     return (

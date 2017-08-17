@@ -64,7 +64,14 @@ class Team extends React.Component {
             <table className="table table-condensed">
               <tbody>
                 {team.allIds
-                  .filter(playerId => team.byId[playerId].owned)
+                  .filter(playerId => {
+                    if (team.byId[playerId]) {
+                      return team.byId[playerId].owned
+                    } else {
+                      console.log(playerId)
+                      return false
+                    }
+                  })
                   .sort(function(a, b) {
                     const posA = playersById[a].position
                     const posB = playersById[b].position
