@@ -1,13 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 
 import * as TeamsSelectors from '../../modules/Teams/selectors'
-import * as teamActions from '../../modules/Teams/actions'
 
 class SmallPlayer extends React.Component {
   render() {
-    const { playerId, playerInfo } = this.props
+    const { playerInfo } = this.props
     return (
       <tr>
         <td>

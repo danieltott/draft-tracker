@@ -1,14 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import Button from 'react-bootstrap/lib/Button'
-import ButtonGroup from 'react-bootstrap/lib/ButtonGroup'
 import * as TeamsSelectors from '../../modules/Teams/selectors'
 import * as teamActions from '../../modules/Teams/actions'
 
 class Player extends React.Component {
   render() {
-    const { playerId, playerInfo, playerState, teamIndex } = this.props
+    const { playerInfo, playerState } = this.props
     return (
       <tr
         className={
@@ -35,17 +33,29 @@ class Player extends React.Component {
           {playerInfo.bye}
         </td>
         <td>
-          <ButtonGroup>
-            <Button bsStyle="default" onClick={this.toggleClaimed}>
+          <div className="btn-group">
+            <button
+              className="btn-default"
+              type="button"
+              onClick={this.toggleClaimed}
+            >
               Claimed
-            </Button>
-            <Button bsStyle="success" onClick={this.toggleOwned}>
+            </button>
+            <button
+              className="btn-success"
+              type="button"
+              onClick={this.toggleOwned}
+            >
               Owned
-            </Button>
-            <Button bsStyle="info" onClick={this.toggleWatched}>
+            </button>
+            <button
+              className="btn-info"
+              type="button"
+              onClick={this.toggleWatched}
+            >
               Watched
-            </Button>
-          </ButtonGroup>
+            </button>
+          </div>
         </td>
       </tr>
     )
