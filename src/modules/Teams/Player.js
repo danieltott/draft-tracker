@@ -6,7 +6,10 @@ import * as teamActions from '../../modules/Teams/actions'
 
 class Player extends React.Component {
   render() {
-    const { playerInfo, playerState } = this.props
+    const { playerInfo, playerState, i, showClaimed } = this.props
+    if (!showClaimed && playerState.claimed) {
+      return null
+    }
     return (
       <tr
         className={
@@ -15,6 +18,9 @@ class Player extends React.Component {
             : playerState.claimed ? 'danger' : playerState.watched ? 'info' : ''
         }
       >
+        <td>
+          {i}
+        </td>
         <td>
           <a href={playerInfo.link} target="_blank" rel="nofollow">
             {playerInfo.name}
@@ -35,21 +41,21 @@ class Player extends React.Component {
         <td>
           <div className="btn-group">
             <button
-              className="btn-default"
+              className="btn btn-default"
               type="button"
               onClick={this.toggleClaimed}
             >
               Claimed
             </button>
             <button
-              className="btn-success"
+              className="btn btn-success"
               type="button"
               onClick={this.toggleOwned}
             >
               Owned
             </button>
             <button
-              className="btn-info"
+              className="btn btn-info"
               type="button"
               onClick={this.toggleWatched}
             >
