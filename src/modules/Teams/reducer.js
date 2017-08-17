@@ -56,6 +56,19 @@ const team = (state = initializeTeam(), action) => {
           .map(str => str.split('=')[1]),
       }
 
+    case types.MOVE_PLAYER:
+      const allIds = [...state.allIds]
+      const { oldI, newI } = action.payload
+      // prettier-ignore
+      if (newI >= 0 && newI <= allIds.length) {
+        [allIds[newI], allIds[oldI]] = [allIds[oldI], allIds[newI]]
+
+        return {
+          ...state,
+          allIds,
+        }
+      }
+
     default:
       if (action.payload && typeof action.payload.playerId !== 'undefined') {
         return {

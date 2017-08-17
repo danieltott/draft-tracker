@@ -61,6 +61,22 @@ class Player extends React.Component {
             >
               Watched
             </button>
+            <button
+              className="btn btn-default"
+              type="button"
+              aria-label="Up"
+              onClick={this.movePlayerUp}
+            >
+              <span className="glyphicon glyphicon-arrow-up" />
+            </button>
+            <button
+              className="btn btn-default"
+              type="button"
+              aria-label="Down"
+              onClick={this.movePlayerDown}
+            >
+              <span className="glyphicon glyphicon-arrow-down" />
+            </button>
           </div>
         </td>
       </tr>
@@ -82,6 +98,20 @@ class Player extends React.Component {
     this.props.actions.togglePlayerWatched(
       this.props.teamIndex,
       this.props.playerId
+    )
+  }
+  movePlayerUp = () => {
+    this.props.actions.movePlayer(
+      this.props.teamIndex,
+      this.props.i,
+      this.props.i - 1
+    )
+  }
+  movePlayerDown = () => {
+    this.props.actions.movePlayer(
+      this.props.teamIndex,
+      this.props.i,
+      this.props.i + 1
     )
   }
 }

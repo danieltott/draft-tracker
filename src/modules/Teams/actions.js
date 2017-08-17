@@ -19,3 +19,5 @@ export const togglePlayerOwned = (teamIndex, playerId) =>
   action(types.TOGGLE_OWNED, { teamIndex, playerId })
 export const togglePlayerWatched = (teamIndex, playerId) =>
   action(types.TOGGLE_WATCHED, { teamIndex, playerId })
+export const movePlayer = (teamIndex, oldI, newI) =>
+  action(types.MOVE_PLAYER, { teamIndex, oldI, newI })
