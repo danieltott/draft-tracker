@@ -12,7 +12,6 @@ class TeamImporter extends React.Component {
     }
   }
   render() {
-    console.log('Importer rendering')
     return (
       <div>
         <textarea

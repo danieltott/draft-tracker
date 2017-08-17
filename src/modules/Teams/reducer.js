@@ -44,6 +44,18 @@ const team = (state = initializeTeam(), action) => {
         ...state,
         name: action.payload.name,
       }
+    case types.IMPORT_TEAMORDER:
+      // console.log(
+      //   action.payload.order.match(/id=([^"]*)/g).map(str => str.split('=')[1])
+      // )
+      // return { ...state }
+      return {
+        ...state,
+        allIds: action.payload.order
+          .match(/id=([^"]*)/g)
+          .map(str => str.split('=')[1]),
+      }
+
     default:
       if (action.payload && typeof action.payload.playerId !== 'undefined') {
         return {
