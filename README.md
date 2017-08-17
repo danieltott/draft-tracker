@@ -1,4 +1,4 @@
-Small thing to track your draft.
+Small thing to track your fantasy draft.
 
 Not a draft board, just a simple way to keep track of who is claimed, who is on your team, and who you're watching. Supports multiple teams. Import order from footballguys.
 
