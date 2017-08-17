@@ -1,0 +1,24 @@
+{
+  "folders":
+  [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "js_prettier": {
+      "debug": false,
+      "auto_format_on_save": true,
+      "auto_format_on_save_excludes": [
+          "*/node_modules/*",
+          "*/file.js",
+          "*.json"
+      ],
+      "prettier_options": {
+        "singleQuote": true,
+        "trailingComma": "es5",
+        "semi": false,
+      }
+    }
+  }
+}

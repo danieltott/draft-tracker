@@ -1,0 +1,28 @@
+{
+  "name": "draft-tracker",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "lint-staged": "^4.0.3",
+    "prettier": "^1.5.3",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-bootstrap": "^0.31.2",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.6",
+    "react-scripts": "1.0.11",
+    "redux": "^3.7.2",
+    "redux-data-structures": "^0.1.5",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-persist": "^4.8.3",
+    "redux-saga": "^0.15.6",
+    "reselect": "^3.0.1",
+    "styled-components": "^2.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
