@@ -9,24 +9,41 @@ class TeamImporter extends React.Component {
 
     this.state = {
       importContent: '',
+      showEditor: false,
     }
   }
   render() {
-    return (
-      <div>
-        <textarea
-          className="form-control"
-          value={this.state.importContent}
-          onChange={e => this.setState({ importContent: e.target.value })}
-        />
-        <Button bsStyle="primary" onClick={this.saveImport}>
-          Import from footballguys
-        </Button>
-      </div>
-    )
+    if (this.state.showEditor) {
+      return (
+        <div>
+          <textarea
+            className="form-control"
+            value={this.state.importContent}
+            onChange={e => this.setState({ importContent: e.target.value })}
+          />
+          <Button bsStyle="primary" onClick={this.saveImport}>
+            Import from footballguys
+          </Button>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <button
+            className="btn btn-link btn-small"
+            onClick={() => {
+              this.setState({ showEditor: true })
+            }}
+          >
+            Import Order
+          </button>
+        </div>
+      )
+    }
   }
   saveImport = () => {
     this.props.importTeamOrder(this.state.importContent)
+    this.setState({ showEditor: false })
   }
 }
 

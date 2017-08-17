@@ -2,6 +2,9 @@ import { createSelector } from 'reselect'
 
 export const getTeams = state => state.teams
 
+export const getTeamName = (state, ownProps) =>
+  state.teams[ownProps.teamIndex].name
+
 export const getVisibleTeamIndex = state => state.visibleTeamIndex
 
 export const getPlayersById = state => state.playersById

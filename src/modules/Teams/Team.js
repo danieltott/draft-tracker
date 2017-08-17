@@ -2,6 +2,7 @@ import React from 'react'
 import Player from './Player'
 import SmallPlayer from './SmallPlayer'
 import TeamImporter from './TeamImporter'
+import TeamName from './TeamName'
 
 class Team extends React.Component {
   constructor(props) {
@@ -18,9 +19,8 @@ class Team extends React.Component {
     return (
       <div className="container-fluid">
         <TeamImporter teamIndex={teamIndex} />
-        <h1>
-          {team.name}
-        </h1>
+        <TeamName teamIndex={teamIndex} />
+
         <div className="row">
           <div className="col-xs-8">
             <h3>All Players</h3>
