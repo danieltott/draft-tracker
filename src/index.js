@@ -11,14 +11,18 @@ import App from './components/App'
 
 const store = configureStore()
 
-persistStore(store)
+const persistor = persistStore(store)
+
+const clearLocalStorage = () => {
+  persistor.purge()
+  window.location.reload()
+}
 
 render(
   <ThemeProvider theme={theme}>
     <Provider store={store}>
-      <App />
+      <App clearData={clearLocalStorage} />
     </Provider>
   </ThemeProvider>,
   document.getElementById('root')
 )
-

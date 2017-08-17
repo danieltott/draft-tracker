@@ -33,7 +33,7 @@ const initializeTeam = () => {
   return {
     allIds,
     byId,
-    name: 'My New Team',
+    name: 'My New Team ' + (' ' + Date.now()).substr(-5),
   }
 }
 

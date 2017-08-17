@@ -29,6 +29,7 @@ const App = ({
   visibleTeam,
   visibleTeamIndex,
   playersById,
+  clearData,
 }) => {
   return (
     <div>
@@ -50,6 +51,16 @@ const App = ({
         <Nav pullRight>
           <NavItem eventKey="abc123" title="New Team" onClick={actions.addTeam}>
             New Team
+          </NavItem>
+          <NavItem
+            eventKey="abc12345"
+            onClick={() => {
+              if (window.confirm('Are you sure you want to clear all data?')) {
+                clearData()
+              }
+            }}
+          >
+            Clear Data
           </NavItem>
         </Nav>
       </Navbar>
