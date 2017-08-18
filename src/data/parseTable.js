@@ -23,6 +23,7 @@ $('.data tbody tr[class]').each(function() {
     name,
     link,
     position,
+    team,
     bye,
     note,
   }
