@@ -11,7 +11,7 @@ import App from './components/App'
 
 const store = configureStore()
 
-const persistor = persistStore(store)
+const persistor = persistStore(store, { blacklist: ['playersById'] })
 
 const clearLocalStorage = () => {
   persistor.purge()
