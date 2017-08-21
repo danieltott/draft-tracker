@@ -33,6 +33,10 @@ const initializeTeam = () => {
   return {
     allIds,
     byId,
+    filters: {
+      showClaimed: true,
+      showIDP: true,
+    },
     name: 'My New Team ' + (' ' + Date.now()).substr(-5),
   }
 }
@@ -54,6 +58,15 @@ const team = (state = initializeTeam(), action) => {
         allIds: action.payload.order
           .match(/id=([^"]*)/g)
           .map(str => str.split('=')[1]),
+      }
+
+    case types.TOGGLE_FILTER:
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          [action.payload.filter]: !state.filters[action.payload.filter],
+        },
       }
 
     case types.MOVE_PLAYER:

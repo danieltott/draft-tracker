@@ -1,4 +1,7 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { toggleFilter } from './actions'
+import { getFilteredPlayers } from './selectors'
 import Player from './Player'
 import SmallPlayer from './SmallPlayer'
 import TeamImporter from './TeamImporter'
@@ -9,17 +12,18 @@ class Team extends React.Component {
     super(props)
 
     this.state = {
-      showClaimed: true,
       importContent: '',
     }
   }
-  toggleClaimed = () => {
-    this.setState({
-      showClaimed: !this.state.showClaimed,
-    })
-  }
   render() {
-    const { team, teamIndex, playersById } = this.props
+    const {
+      team,
+      teamIndex,
+      playersById,
+      toggleShowClaimed,
+      toggleShowIDP,
+      filteredPlayers,
+    } = this.props
 
     return (
       <div className="container-fluid">
@@ -30,8 +34,12 @@ class Team extends React.Component {
           <div className="col-xs-8">
             <h3>All Players</h3>
             <div>
-              <button className="btn btn-link" onClick={this.toggleClaimed}>
-                {this.state.showClaimed ? 'Hide ' : 'Show '} Claimed
+              <button className="btn btn-link" onClick={toggleShowClaimed}>
+                {team.filters.showClaimed ? 'Hide ' : 'Show '} Claimed
+              </button>
+
+              <button className="btn btn-link" onClick={toggleShowIDP}>
+                {team.filters.showIDP ? 'Hide ' : 'Show '} IDP
               </button>
             </div>
             <table className="table">
@@ -46,13 +54,11 @@ class Team extends React.Component {
                 </tr>
               </thead>
               <tbody>
-                {team.allIds.map((playerId, i) =>
+                {filteredPlayers.map((playerId, i) =>
                   <Player
                     key={playerId}
                     playerId={playerId}
                     teamIndex={teamIndex}
-                    i={i}
-                    showClaimed={this.state.showClaimed}
                   />
                 )}
               </tbody>
@@ -97,4 +103,18 @@ class Team extends React.Component {
   }
 }
 
-export default Team
+const mapStateToProps = (state, ownProps) => {
+  return {
+    filteredPlayers: getFilteredPlayers(state, ownProps),
+  }
+}
+
+function mapDispatchToProps(dispatch, ownProps) {
+  return {
+    toggleShowClaimed: () =>
+      dispatch(toggleFilter(ownProps.teamIndex, 'showClaimed')),
+    toggleShowIDP: () => dispatch(toggleFilter(ownProps.teamIndex, 'showIDP')),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Team)

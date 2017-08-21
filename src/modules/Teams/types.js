@@ -5,6 +5,7 @@ export const IMPORT_TEAMORDER = 'Teams@@IMPORT_TEAMORDER'
 
 export const EDIT_TEAM_NAME = 'Team@@EDIT_TEAM_NAME'
 export const MOVE_PLAYER = 'Team@@MOVE_PLAYER'
+export const TOGGLE_FILTER = 'Team@@TOGGLE_FILTER'
 
 export const TOGGLE_CLAIMED = 'Player@@TOGGLE_CLAIMED'
 export const TOGGLE_OWNED = 'Player@@TOGGLE_OWNED'

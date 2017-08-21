@@ -6,38 +6,40 @@ import * as teamActions from '../../modules/Teams/actions'
 
 class Player extends React.Component {
   render() {
-    const { playerInfo, playerState, i, showClaimed } = this.props
-    if (!playerState || (!showClaimed && playerState.claimed)) {
-      console.log(this.props.playerId)
+    const { playerData } = this.props
+    if (!playerData.state) {
+      console.log('Not found: ' + this.props.playerId)
       return null
     }
     return (
       <tr
         className={
-          playerState.owned
+          playerData.state.owned
             ? 'success'
-            : playerState.claimed ? 'danger' : playerState.watched ? 'info' : ''
+            : playerData.state.claimed
+              ? 'danger'
+              : playerData.state.watched ? 'info' : ''
         }
       >
         <td>
-          {i}
+          {playerData.originalRank}
         </td>
         <td>
-          <a href={playerInfo.link} target="_blank" rel="nofollow">
-            {playerInfo.name}
+          <a href={playerData.info.link} target="_blank" rel="nofollow">
+            {playerData.info.name}
           </a>{' '}
-          {playerInfo.note
+          {playerData.info.note
             ? <span className="glyphicon glyphicon-question-sign" />
             : ''}
         </td>
         <td>
-          {playerInfo.position}
+          {playerData.info.position}
         </td>
         <td>
-          {playerInfo.team}
+          {playerData.info.team}
         </td>
         <td>
-          {playerInfo.bye}
+          {playerData.info.bye}
         </td>
         <td>
           <div className="btn-group">
@@ -119,8 +121,7 @@ class Player extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    playerInfo: TeamsSelectors.getPlayerInfo(state, ownProps),
-    playerState: TeamsSelectors.getPlayerState(state, ownProps),
+    playerData: TeamsSelectors.getPlayerData(state, ownProps),
   }
 }
 

@@ -21,3 +21,6 @@ export const togglePlayerWatched = (teamIndex, playerId) =>
   action(types.TOGGLE_WATCHED, { teamIndex, playerId })
 export const movePlayer = (teamIndex, oldI, newI) =>
   action(types.MOVE_PLAYER, { teamIndex, oldI, newI })
+
+export const toggleFilter = (teamIndex, filter) =>
+  action(types.TOGGLE_FILTER, { teamIndex, filter })
