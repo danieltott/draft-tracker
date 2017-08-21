@@ -20,12 +20,20 @@
     "reselect": "^3.0.1",
     "styled-components": "^2.1.2"
   },
+  "lint-staged": {
+    "{,src/**/}*.{js}": [
+      "prettier --no-semi --write --single-quote --trailing-comma es5",
+      "git add"
+    ]
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "prettier": "prettier --no-semi --write --single-quote --trailing-comma es5 {,src/**/}*.{js}",
+    "precommit": "lint-staged"
   }
 }
