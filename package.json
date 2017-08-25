@@ -11,14 +11,17 @@
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.2",
     "react-dom": "^15.6.1",
+    "react-file-download": "^0.3.4",
     "react-redux": "^5.0.6",
     "react-scripts": "1.0.11",
     "redux": "^3.7.2",
     "redux-data-structures": "^0.1.5",
     "redux-devtools-extension": "^2.13.2",
     "redux-persist": "^4.8.3",
+    "redux-saga": "^0.15.6",
     "reselect": "^3.0.1",
-    "styled-components": "^2.1.2"
+    "styled-components": "^2.1.2",
+    "yarn": "^0.27.5"
   },
   "lint-staged": {
     "{,src/**/}*.{js}": [

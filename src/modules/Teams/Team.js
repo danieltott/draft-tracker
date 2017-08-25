@@ -1,11 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { toggleFilter } from './actions'
+import { toggleFilter, downloadExport } from './actions'
 import { getFilteredPlayers } from './selectors'
 import Player from './Player'
 import SmallPlayer from './SmallPlayer'
 import TeamImporter from './TeamImporter'
-import TeamExporter from './TeamExporter'
 import TeamName from './TeamName'
 
 class Team extends React.Component {
@@ -24,11 +23,20 @@ class Team extends React.Component {
       toggleShowClaimed,
       toggleShowIDP,
       filteredPlayers,
+      downloadExport,
     } = this.props
 
     return (
       <div className="container-fluid">
-        <TeamExporter team={team} />
+        <div>
+          <button
+            type="button"
+            className="btn btn-link"
+            onClick={() => downloadExport(team)}
+          >
+            Download Export File
+          </button>
+        </div>
         <TeamName teamIndex={teamIndex} />
 
         <div className="row">
@@ -117,6 +125,7 @@ function mapDispatchToProps(dispatch, ownProps) {
     toggleShowClaimed: () =>
       dispatch(toggleFilter(ownProps.teamIndex, 'showClaimed')),
     toggleShowIDP: () => dispatch(toggleFilter(ownProps.teamIndex, 'showIDP')),
+    downloadExport: team => dispatch(downloadExport(team)),
   }
 }
 

@@ -24,3 +24,5 @@ export const movePlayer = (teamIndex, oldI, newI) =>
 
 export const toggleFilter = (teamIndex, filter) =>
   action(types.TOGGLE_FILTER, { teamIndex, filter })
+
+export const downloadExport = team => action(types.DOWNLOAD_EXPORT, { team })

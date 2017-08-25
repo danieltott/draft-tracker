@@ -4,12 +4,13 @@ import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import { persistStore } from 'redux-persist'
 import theme from './styles/theme'
-
 import configureStore from './store'
-
 import App from './components/App'
+import teamsSaga from './modules/Teams/sagas'
 
 const store = configureStore()
+
+store.runSaga(teamsSaga, store.getState)
 
 const persistor = persistStore(store, { blacklist: ['playersById'] })
 
