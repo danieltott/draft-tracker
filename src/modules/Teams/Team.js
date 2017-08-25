@@ -5,6 +5,7 @@ import { getFilteredPlayers } from './selectors'
 import Player from './Player'
 import SmallPlayer from './SmallPlayer'
 import TeamImporter from './TeamImporter'
+import TeamExporter from './TeamExporter'
 import TeamName from './TeamName'
 
 class Team extends React.Component {
@@ -27,7 +28,7 @@ class Team extends React.Component {
 
     return (
       <div className="container-fluid">
-        <TeamImporter teamIndex={teamIndex} />
+        <TeamExporter team={team} />
         <TeamName teamIndex={teamIndex} />
 
         <div className="row">
@@ -98,6 +99,8 @@ class Team extends React.Component {
             </table>
           </div>
         </div>
+
+        <TeamImporter teamIndex={teamIndex} />
       </div>
     )
   }
