@@ -22,7 +22,7 @@ class Player extends React.Component {
         }
       >
         <td>
-          {playerData.originalRank}
+          {playerData.originalRank + 1}
         </td>
         <td>
           <a href={playerData.info.link} target="_blank" rel="nofollow">
