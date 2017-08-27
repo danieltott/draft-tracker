@@ -9628,5 +9628,39 @@
     "bye": "6",
     "note": "",
     "team": "SEA"
+  },
+
+  "BeatCJ00": {
+    "name": "C.J. Beathard",
+    "link": "http://subscribers.footballguys.com/players/player-all-info.php?id=BeatCJ00",
+    "position": "QB",
+    "bye": "11",
+    "note": "",
+    "team": "SF"
+  },
+  "OShaJa00": {
+    "name": "James OShaughnessy",
+    "link": "http://subscribers.footballguys.com/players/player-all-info.php?id=OShaJa00",
+    "position": "TE",
+    "bye": "9",
+    "note": "<img src=http://cdn.footballguys.com/site/2013/content-img/upside-icon-24px.png /> Fluid, sure-handed, and quick, O’Shaughnessy lacked the size that the Chiefs sought from an in-line tight end. He could thrive as an H-Back if New England needs him due to an injury to Dwayne Allen. ",
+    "team": "NE"
+  },
+  "ThomDe07": {
+    "name": "DeAnthony Thomas",
+    "link": "http://subscribers.footballguys.com/players/player-all-info.php?id=ThomDe07",
+    "position": "WR",
+    "bye": "10",
+    "note": "",
+    "team": "KC"
+  },
+  "TateBr00": {
+    "name": "Brandon Tate",
+    "link": "http://subscribers.footballguys.com/players/player-all-info.php?id=TateBr00",
+    "position": "WR",
+    "bye": "6",
+    "note": "",
+    "team": "BUF"
   }
 }
+
