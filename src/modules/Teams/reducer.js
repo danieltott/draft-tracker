@@ -48,7 +48,10 @@ const team = (state = initializeTeam(), action) => {
         ...state,
         name: action.payload.name,
       }
-    case types.IMPORT_TEAMORDER:
+    case types.IMPORT_TEAM_DATA_JSON:
+      return JSON.parse(action.payload.team)
+
+    case types.IMPORT_TEAMORDER_FBG:
       // console.log(
       //   action.payload.order.match(/id=([^"]*)/g).map(str => str.split('=')[1])
       // )

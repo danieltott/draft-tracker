@@ -10,8 +10,11 @@ export const displayTeam = teamIndex =>
 export const editTeamName = (teamIndex, name) =>
   action(types.EDIT_TEAM_NAME, { teamIndex, name })
 
-export const importTeamOrder = (teamIndex, order) =>
-  action(types.IMPORT_TEAMORDER, { teamIndex, order })
+export const importTeamOrderFbg = (teamIndex, order) =>
+  action(types.IMPORT_TEAMORDER_FBG, { teamIndex, order })
+
+export const importTeamDataJson = (teamIndex, team) =>
+  action(types.IMPORT_TEAM_DATA_JSON, { teamIndex, team })
 
 export const togglePlayerClaimed = (teamIndex, playerId) =>
   action(types.TOGGLE_CLAIMED, { teamIndex, playerId })
